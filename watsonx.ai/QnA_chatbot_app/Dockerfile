@@ -1,7 +1,4 @@
-FROM registry.access.redhat.com/ubi9/python-311:latest
-
-# Run everything as root
-USER root
+FROM python:3-slim
 
 RUN mkdir /app
 WORKDIR /app
@@ -14,7 +11,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
-# Switch to non-root user for runtime (security best practice)
-USER 1001
-
-CMD ["streamlit", "run", "qna_streamlit_chat_app.py", "--server.port", "8080", "--theme.base", "light", "--client.toolbarMode", "minimal"]
+CMD ["streamlit", "run", "qna_streamlit_chat_app.py", "--server.port", "8080", "--theme.base" , "light", "--client.toolbarMode", "minimal"]
