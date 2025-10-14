@@ -1,5 +1,7 @@
 FROM python:3-slim
 
+RUN dnf install cmake
+
 RUN mkdir /app
 WORKDIR /app
 
