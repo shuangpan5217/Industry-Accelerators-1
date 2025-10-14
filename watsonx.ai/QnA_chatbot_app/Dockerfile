@@ -15,8 +15,8 @@ COPY .env /app
 #urllib3==2.5.0
 #python-dotenv==1.1.1
 
+RUN pip install -r requirements.txt
 RUN pip install --only-binary streamlit==1.47.1
-RUN pip install --only-binary=:all: -r requirements.txt
 
 
 
