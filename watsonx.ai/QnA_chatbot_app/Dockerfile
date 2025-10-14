@@ -8,7 +8,18 @@ COPY requirements.txt /app
 COPY .env /app
 
 # RUN pip install --only-binary=:all: -r requirements.txt
-RUN pip install --only-binary <package_name1>,<package_name2> <package_name1> <package_name2>
+
+#pydantic==2.11.7
+#requests==2.32.4
+#streamlit==1.47.1
+#urllib3==2.5.0
+#python-dotenv==1.1.1
+
+RUN pip install --only-binary streamlit==1.47.1
+RUN pip install --only-binary=:all: -r requirements.txt
+
+
+
 
 EXPOSE 8080
 
