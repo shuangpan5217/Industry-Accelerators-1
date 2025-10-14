@@ -1,6 +1,10 @@
 FROM python:3-slim
 
-RUN dnf install cmake
+# Install build tools and other dependencies required for CMake
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app
 WORKDIR /app
